@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/screens/mainMenu.dart';
-import 'constants.dart';
+import 'package:todolist/screens/login.dart';
+import 'package:todolist/screens/register.dart';
+import 'package:todolist/screens/todoScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,13 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TuDu',
-      home: Scaffold(
-        body: Container(
-          color: grey,
-          padding: EdgeInsets.symmetric(vertical: 50, horizontal: 40),
-          child: MainMenu(),
-        ),
-      ),
+      routes: {
+        mainMenuId: (context) => MainMenu(),
+        loginId: (context) => LoginScreen(),
+        registerId: (context) => RegisterScreen(),
+        toDoId: (context) => ToDoScreen(),
+      },
+      initialRoute: mainMenuId,
     );
   }
 }
