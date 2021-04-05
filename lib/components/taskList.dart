@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'taskTile.dart';
 import 'package:provider/provider.dart';
 import 'tasks.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TaskList extends StatelessWidget {
+  final String email;
+  TaskList({this.email});
   @override
   Widget build(BuildContext context) {
     return Consumer<Tasks>(
@@ -17,9 +18,7 @@ class TaskList extends StatelessWidget {
               callbac: (cbState) {
                 tasks.checkOff(tasks.todo[index]);
               },
-              longCallbac: () {
-                tasks.removeTask(tasks.todo[index]);
-              },
+              email: email,
             );
           },
           itemCount: tasks.todo.length,

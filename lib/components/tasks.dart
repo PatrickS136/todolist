@@ -14,18 +14,6 @@ class Task {
 }
 
 class Tasks extends ChangeNotifier {
-  // void getTasks(String email) async {
-  //   await for (var snapshots in _firestore
-  //       .collection(email)
-  //       .orderBy('createdAt', descending: false)
-  //       .snapshots()) {
-  //     for (var message in snapshots.docs) {
-  //       print(message.data()["taskName"]);
-  //       this.addNewTask(message.data()["taskName"]);
-  //     }
-  //   }
-  // }
-
   List<Task> todo = [];
 
   int get len {
@@ -39,6 +27,10 @@ class Tasks extends ChangeNotifier {
 
   void checkOff(Task chosen) {
     chosen.toggleDone();
+    notifyListeners();
+  }
+
+  void notify() {
     notifyListeners();
   }
 

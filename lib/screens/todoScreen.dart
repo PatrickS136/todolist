@@ -127,7 +127,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               color: grey,
-              child: TaskList(),
+              child: TaskList(email: loggedInUser.email),
             ),
           ),
         ],

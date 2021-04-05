@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/constants.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:todolist/components/tasks.dart';
+import 'package:provider/provider.dart';
 
 class TaskTile extends StatelessWidget {
-  // final _firestore = FirebaseFirestore.instance;
+  final _firestore = FirebaseFirestore.instance;
   final bool isChecked;
   final String taskTitle;
   final Function callbac;
-  final Function longCallbac;
   final String email;
   TaskTile({
-    this.taskTitle,
-    this.isChecked,
-    this.callbac,
-    this.longCallbac,
-    this.email,
+    @required this.taskTitle,
+    @required this.isChecked,
+    @required this.callbac,
+    @required this.email,
   });
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,16 @@ class TaskTile extends StatelessWidget {
         value: isChecked,
         onChanged: callbac,
       ),
-      onLongPress: longCallbac,
+      onLongPress: () {
+        Provider.of<Tasks>(context, listen: false).todo = [];
+        _firestore
+            .collection(email)
+            .doc(taskTitle)
+            .delete()
+            .then((value) => print("Task Deleted"))
+            .catchError((error) => print("Failed to delete task: $error"));
+        Provider.of<Tasks>(context, listen: false).notify();
+      },
     );
   }
 }

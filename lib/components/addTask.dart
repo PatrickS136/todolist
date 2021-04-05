@@ -52,9 +52,13 @@ class _AddTaskState extends State<AddTask> {
             TextButton(
               onPressed: () {
                 Provider.of<Tasks>(context, listen: false).todo = [];
-                _firestore.collection('${this.widget.userEmail}').add({
+                _firestore
+                    .collection('${this.widget.userEmail}')
+                    .doc(taskName)
+                    .set({
                   'taskName': taskName,
                   'createdAt': Timestamp.now(),
+                  'isChecked': false,
                 });
                 Navigator.pop(context);
               },
