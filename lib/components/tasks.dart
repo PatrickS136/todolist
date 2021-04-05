@@ -31,8 +31,8 @@ class Tasks extends ChangeNotifier {
     notifyListeners();
   }
 
-  void remove(String taskName) {
-    todo.removeWhere((item) => item.name == taskName);
+  void removeTask(Task task) {
+    todo.remove(task);
     notifyListeners();
   }
 }

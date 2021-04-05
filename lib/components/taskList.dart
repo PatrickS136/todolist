@@ -16,6 +16,9 @@ class TaskList extends StatelessWidget {
               callbac: (cbState) {
                 taskData.checkOff(taskData.todo[index]);
               },
+              longCallbac: () {
+                taskData.removeTask(taskData.todo[index]);
+              },
             );
           },
           itemCount: taskData.todo.length,

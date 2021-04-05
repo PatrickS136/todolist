@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:todolist/constants.dart';
-import 'tasks.dart';
 
 class TaskTile extends StatelessWidget {
   final bool isChecked;
   final String taskTitle;
   final Function callbac;
-  TaskTile({this.taskTitle, this.isChecked, this.callbac});
+  final Function longCallbac;
+  TaskTile({this.taskTitle, this.isChecked, this.callbac, this.longCallbac});
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -26,9 +25,7 @@ class TaskTile extends StatelessWidget {
         value: isChecked,
         onChanged: callbac,
       ),
-      onLongPress: () {
-        Provider.of<Tasks>(context, listen: false).remove(taskTitle);
-      },
+      onLongPress: longCallbac,
     );
   }
 }
