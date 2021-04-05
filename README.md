@@ -1,6 +1,8 @@
-# weather_checker
+# todolist
 
-Weather Checker made with Flutter
+A to do list named TuDu made with Flutter and Firebase(Auth and Firestore)
+
+State management done with Provider package
 
 Screenshots below ran on the Nexus 6 virtual device, not yet tested on an iOS device
 
