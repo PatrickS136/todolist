@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'tasks.dart';
 import 'package:provider/provider.dart';
 import 'package:todolist/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddTask extends StatefulWidget {
+  final String userEmail;
+  AddTask({@required this.userEmail});
   @override
   _AddTaskState createState() => _AddTaskState();
 }
 
 class _AddTaskState extends State<AddTask> {
+  final _firestore = FirebaseFirestore.instance;
   String taskName;
 
   @override
@@ -47,7 +51,11 @@ class _AddTaskState extends State<AddTask> {
             ),
             TextButton(
               onPressed: () {
-                Provider.of<Tasks>(context, listen: false).addNewTask(taskName);
+                Provider.of<Tasks>(context, listen: false).todo = [];
+                _firestore.collection('${this.widget.userEmail}').add({
+                  'taskName': taskName,
+                  'createdAt': Timestamp.now(),
+                });
                 Navigator.pop(context);
               },
               autofocus: true,

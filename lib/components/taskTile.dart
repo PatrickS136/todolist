@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/constants.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TaskTile extends StatelessWidget {
+  // final _firestore = FirebaseFirestore.instance;
   final bool isChecked;
   final String taskTitle;
   final Function callbac;
   final Function longCallbac;
-  TaskTile({this.taskTitle, this.isChecked, this.callbac, this.longCallbac});
+  final String email;
+  TaskTile({
+    this.taskTitle,
+    this.isChecked,
+    this.callbac,
+    this.longCallbac,
+    this.email,
+  });
   @override
   Widget build(BuildContext context) {
     return ListTile(

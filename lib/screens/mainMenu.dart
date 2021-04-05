@@ -3,7 +3,6 @@ import 'package:todolist/constants.dart';
 import 'package:todolist/components/reusableButton.dart';
 import 'login.dart';
 import 'register.dart';
-import 'todoScreen.dart';
 
 final String mainMenuId = '/';
 
@@ -56,12 +55,6 @@ class MainMenu extends StatelessWidget {
                 Navigator.pushNamed(context, registerId);
               },
               text: "Register",
-            ),
-            ReusableButton(
-              onPressed: () {
-                Navigator.pushNamed(context, toDoId);
-              },
-              text: "To Do Screen",
             ),
           ],
         ),

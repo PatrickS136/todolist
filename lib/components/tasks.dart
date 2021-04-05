@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:core';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+
+// final _firestore = FirebaseFirestore.instance;
 
 class Task {
   final String name;
@@ -11,11 +14,19 @@ class Task {
 }
 
 class Tasks extends ChangeNotifier {
-  List<Task> todo = [
-    Task(name: "Buy milk"),
-    Task(name: "Buy eggs"),
-    Task(name: "Buy yogurt"),
-  ];
+  // void getTasks(String email) async {
+  //   await for (var snapshots in _firestore
+  //       .collection(email)
+  //       .orderBy('createdAt', descending: false)
+  //       .snapshots()) {
+  //     for (var message in snapshots.docs) {
+  //       print(message.data()["taskName"]);
+  //       this.addNewTask(message.data()["taskName"]);
+  //     }
+  //   }
+  // }
+
+  List<Task> todo = [];
 
   int get len {
     return todo.length;
