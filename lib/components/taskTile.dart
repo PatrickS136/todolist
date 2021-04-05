@@ -36,6 +36,9 @@ class TaskTile extends StatelessWidget {
       ),
       onLongPress: () {
         Provider.of<Tasks>(context, listen: false).todo = [];
+        Provider.of<Tasks>(context, listen: false)
+            .todo
+            .remove(Task(name: taskTitle));
         _firestore
             .collection(email)
             .doc(taskTitle)

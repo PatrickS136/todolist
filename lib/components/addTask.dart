@@ -58,7 +58,6 @@ class _AddTaskState extends State<AddTask> {
                     .set({
                   'taskName': taskName,
                   'createdAt': Timestamp.now(),
-                  'isChecked': false,
                 });
                 Navigator.pop(context);
               },
