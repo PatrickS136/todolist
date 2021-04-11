@@ -6,11 +6,14 @@ import 'dart:core';
 
 class Task {
   final String name;
-  bool isDone;
-  Task({this.name, this.isDone = false});
-  toggleDone() {
-    isDone = !isDone;
-  }
+  // bool isDone;
+  Task({
+    this.name,
+    // this.isDone = false,
+  });
+  // toggleDone() {
+  //   isDone = !isDone;
+  // }
 }
 
 class Tasks extends ChangeNotifier {
@@ -25,10 +28,10 @@ class Tasks extends ChangeNotifier {
     notifyListeners();
   }
 
-  void checkOff(Task chosen) {
-    chosen.toggleDone();
-    notifyListeners();
-  }
+  // void checkOff(Task chosen) {
+  //   chosen.toggleDone();
+  //   notifyListeners();
+  // }
 
   void notify() {
     notifyListeners();

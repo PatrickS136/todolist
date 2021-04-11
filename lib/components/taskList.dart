@@ -14,10 +14,10 @@ class TaskList extends StatelessWidget {
           itemBuilder: (context, index) {
             return TaskTile(
               taskTitle: tasks.todo[index].name,
-              isChecked: tasks.todo[index].isDone,
-              callbac: (cbState) {
-                tasks.checkOff(tasks.todo[index]);
-              },
+              // isChecked: tasks.todo[index].isDone,
+              // callbac: (cbState) {
+              //   tasks.checkOff(tasks.todo[index]);
+              // },
               email: email,
             );
           },

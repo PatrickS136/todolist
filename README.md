@@ -1,6 +1,6 @@
-# todolist
+# tudu
 
-A to do list named TuDu made with Flutter and Firebase(Auth and Firestore)
+A to-do list named TuDu made with Flutter and Firebase(Auth and Firestore)
 
 State management done with Provider package
 
@@ -16,22 +16,31 @@ Font : <a href="https://fonts.google.com/specimen/Oswald?query=oswald">Oswald</a
 <hr>
 <img src="screenshots/img2.png" alt="2" width="400" />
 <br>
-<h2>Register Screen</h2>
+<h2>Login Input</h2>
 <hr>
 <img src="screenshots/img3.png" alt="3" width="400" />
 <br>
-<h2>Example input</h2>
+<h2>Register Screen</h2>
 <hr>
 <img src="screenshots/img4.png" alt="4" width="400" />
-<h2>Loading</h2>
+<h2>Register Input</h2>
 <hr>
 <img src="screenshots/img5.png" alt="5" width="400" />
-<h2>Functionality</h2>
+<h2>Loading Spinner</h2>
 <hr>
 <img src="screenshots/img6.png" alt="6" width="400" />
-<h2>After erasing</h2>
+<h2>To-Do List Screen</h2>
 <hr>
 <img src="screenshots/img7.png" alt="7" width="400" />
-<h2>Adding tasks</h2>
+<h2>Adding Tasks</h2>
 <hr>
 <img src="screenshots/img8.png" alt="8" width="400" />
+<h2>Adding Tasks Input</h2>
+<hr>
+<img src="screenshots/img9.png" alt="9" width="400" />
+<h2>After Adding</h2>
+<hr>
+<img src="screenshots/img10.png" alt="10" width="400" />
+<h2>After Erasing</h2>
+<hr>
+<img src="screenshots/img11.png" alt="11" width="400" />

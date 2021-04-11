@@ -28,7 +28,8 @@ class _AddTaskState extends State<AddTask> {
           ),
         ),
         padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-        child: ListView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Center(
               child: Text(
@@ -45,34 +46,45 @@ class _AddTaskState extends State<AddTask> {
               onChanged: (value) {
                 taskName = value;
               },
+              cursorColor: darkgrey,
+              decoration: InputDecoration(
+                focusColor: darkgrey,
+                hoverColor: darkgrey,
+              ),
             ),
             SizedBox(
               height: 30,
             ),
-            TextButton(
-              onPressed: () {
-                Provider.of<Tasks>(context, listen: false).todo = [];
-                _firestore
-                    .collection('${this.widget.userEmail}')
-                    .doc(taskName)
-                    .set({
-                  'taskName': taskName,
-                  'createdAt': Timestamp.now(),
-                });
-                Navigator.pop(context);
-              },
-              autofocus: true,
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Text(
-                  "Add",
-                  style: TextStyle(color: grey, fontSize: 20),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {
+                  Provider.of<Tasks>(context, listen: false).todo = [];
+                  _firestore
+                      .collection('${this.widget.userEmail}')
+                      .doc(taskName)
+                      .set({
+                    'taskName': taskName,
+                    'createdAt': Timestamp.now(),
+                  });
+                  Navigator.pop(context);
+                },
+                autofocus: true,
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "Add",
+                    style: TextStyle(color: grey, fontSize: 20),
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  backgroundColor: darkgrey,
                 ),
               ),
-              style: TextButton.styleFrom(
-                backgroundColor: darkgrey,
-              ),
-            )
+            ),
+            SizedBox(
+              height: 100,
+            ),
           ],
         ),
       ),

@@ -59,6 +59,7 @@ class _ToDoScreenState extends State<ToDoScreen> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
+            isScrollControlled: true,
             builder: (context) => AddTask(userEmail: loggedInUser.email),
           );
         },
